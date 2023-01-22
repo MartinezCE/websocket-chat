@@ -19,9 +19,9 @@ app.get("/", (req, res) => {
 let chat = [];
 
 io.on("connection", (socket) => {
-  chat.push("se unio al chat " + socket.id);
+  chat.push( {nombre:socket.id,msg:`Se unio al chat`}/* `Se unio al chat ${socket.id}` */);
   io.sockets.emit("arr-chat", chat);
-
+  
   socket.on("data-generica", (data) => {
     chat.push(data);
     io.sockets.emit("arr-chat", chat);

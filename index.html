@@ -4,26 +4,38 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page Title</title>
     <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://toppng.com/uploads/preview/live-chat-icon-png-11553726049fh5ynejwli.png" />
     <script src="/socket.io/socket.io.js"></script>
     <script src="/index.js"></script>
-    <title>Chat App</title>
+    <title>Chatroom</title>
 </head>
 
 <body>
-    <h1>Chat App</h1>
-    <p>Bienvenidos al chat.</p>
+    <div class="main">
+        <h1>Chatroom</h1>
+    </div>
+    <div class="sub-main">
+        <h3 class="subtitulo">Bienvenidos al chat.</h3>
+        <input onsubmit="return enviar()" id="caja-nombre" class="input" type="text" value="" placeholder="NickName"
+            required />
+        <!-- <button type="submit" id='btn'> Borrar chat</button> -->
+    </div>
+    <div class="main">
+        <div id="div-chats"></div>
+        <form id="1" onsubmit="return enviar()">
+            <textarea required name="textarea" id="caja-msg" rows="6" cols="82"
+                placeholder="Escribe tu mensaje"></textarea>
+            <button type="submit" id='btn'>
+                <img src="https://i.cloudup.com/gBzAn-oW_S-2000x2000.png" width="24px" height="30px" />
+            </button>
+        </form>
+    </div>
 
-    <form onsubmit="return enviar()">
-        <input id="caja-nombre" type="text" value="" placeholder="nombre" />
-        <input id="caja-msg" type="text" value="" placeholder="mensaje" />
-        <input type="submit" value="Enviar" />
-    </form>
-    <div id="div-chats" style="width: -webkit-fill-available;
-    margin-top: 20px;
-    direction: flex;
-    border: blue 1px solid;"></div>
 </body>
 
 </html>
